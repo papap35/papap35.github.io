@@ -1,28 +1,190 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-Hant">
   <head>
-    <meta charset="utf-8">
-    <meta property="al:ios:url" content="media17://" />
-    <meta property="al:android:url" content="https://17.live/" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta property="og:url" content="https://papap35.github.io" />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://papap35.github.io/p3p1s4988rp248q985487q640n99rr2r.jpg" />
-    <meta property="og:title" content="papap35" />
-    <meta property="og:description" content="精靈寶可夢中分類為「鼠寶可夢」。有一部分《大亂鬥Smash Brothers》的攻略書籍中記為「兔貓」。如同鼠寶可夢這個名稱字面上所形容的，是仿自老鼠的寶可夢。依寶可夢圖鑑紀錄，標準身高0.4m、體重6.0 kg。肌膚為黃色，背部有褐色條紋，耳朵尖端為黑色。臉頰上具備著看似紅色斑點被稱為「電氣袋」的蓄電器官，雌性皮卡丘的尾巴末端為心形（有缺口）。其名字由日文中光線的狀聲詞 「Pika」（ピカ）、以及老鼠的叫聲「啾啾」（チュウ）組合而成[1]。" />
-    <meta property="fb:app_id" content="898257960220808" />
-    <title>papap35</title>
+    <meta property="og:title" content="Shane Chen (papap35)" />
+    <meta property="og:description" content="軟體工程師，喜歡用 AI 打造各種實驗性小工具。這裡整理了我的 GitHub 專案入口。" />
+    <title>Shane Chen (papap35)</title>
+    <style>
+      :root {
+        color-scheme: light dark;
+        --bg: #0f1115;
+        --surface: #171a21;
+        --border: #262a33;
+        --text: #e8eaed;
+        --muted: #9aa1ac;
+        --accent: #7c9cff;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang TC", "Noto Sans TC", sans-serif;
+        line-height: 1.6;
+      }
+      main {
+        max-width: 880px;
+        margin: 0 auto;
+        padding: 64px 24px 96px;
+      }
+      header.intro {
+        margin-bottom: 56px;
+      }
+      header.intro h1 {
+        font-size: 2rem;
+        margin: 0 0 8px;
+      }
+      header.intro p {
+        color: var(--muted);
+        margin: 0 0 20px;
+        max-width: 60ch;
+      }
+      .links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+      .links a {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 14px;
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        color: var(--text);
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: border-color 0.15s ease, color 0.15s ease;
+      }
+      .links a:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+      }
+      h2.section-title {
+        font-size: 1.1rem;
+        color: var(--muted);
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        margin: 0 0 20px;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        gap: 16px;
+      }
+      .card {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 20px;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        text-decoration: none;
+        color: var(--text);
+        transition: transform 0.15s ease, border-color 0.15s ease;
+      }
+      .card:hover {
+        transform: translateY(-2px);
+        border-color: var(--accent);
+      }
+      .card h3 {
+        margin: 0;
+        font-size: 1.05rem;
+      }
+      .card p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.9rem;
+        flex: 1;
+      }
+      .card .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-top: 4px;
+      }
+      .card .tags span {
+        font-size: 0.75rem;
+        color: var(--accent);
+        background: rgba(124, 156, 255, 0.12);
+        padding: 3px 8px;
+        border-radius: 6px;
+      }
+      footer {
+        margin-top: 64px;
+        color: var(--muted);
+        font-size: 0.85rem;
+      }
+      footer a {
+        color: var(--muted);
+      }
+    </style>
   </head>
   <body>
-    <h1>Deeplink test</h1>
-    <br>
-    <a href="clip.html">clip</a>
-    <br>
-    <a href="post.html">post</a>
-    <br>
-    <a href="profile.html">profile</a>
-    <br>
-    <a href="recap.html">recap</a>
-    <br>
-    <a href="vod.html">vod</a>
+    <main>
+      <header class="intro">
+        <h1>Hi, I'm Shane 👋</h1>
+        <p>
+          軟體工程師，平常喜歡用 AI 打造各種實驗性小工具，從記帳、股票監控到影像處理都有涉獵。
+          這裡整理了我近期用 AI 協作開發的專案，歡迎瀏覽原始碼。
+        </p>
+        <div class="links">
+          <a href="https://github.com/papap35" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </header>
+
+      <section>
+        <h2 class="section-title">Projects</h2>
+        <div class="grid">
+          <a class="card" href="https://github.com/papap35/many-money" target="_blank" rel="noopener">
+            <h3>Many Money</h3>
+            <p>AI 輔助記帳軟體，結合完整記帳功能與 AI 財務分析，幫助使用者開源節流。</p>
+            <div class="tags"><span>Next.js</span><span>TypeScript</span><span>AI</span></div>
+          </a>
+          <a class="card" href="https://github.com/papap35/taiwan-stock-monitor" target="_blank" rel="noopener">
+            <h3>Taiwan Stock Monitor</h3>
+            <p>台股個人投資儀表板，提供即時監控、技術分析、籌碼追蹤與 AI 盤勢簡報。</p>
+            <div class="tags"><span>JavaScript</span><span>AI</span></div>
+          </a>
+          <a class="card" href="https://github.com/papap35/image-magic" target="_blank" rel="noopener">
+            <h3>Image Magic</h3>
+            <p>透過提示詞與動態表單產生 AI 圖片，支援標籤、AI 辨識與語意搜尋的圖庫管理。</p>
+            <div class="tags"><span>Next.js</span><span>TypeScript</span><span>AI</span></div>
+          </a>
+          <a class="card" href="https://github.com/papap35/paper-sudoku-helper" target="_blank" rel="noopener">
+            <h3>Paper Sudoku Helper</h3>
+            <p>拍照辨識紙本數獨盤面，自動計算候選數字、檢查錯誤並提供分級提示。</p>
+            <div class="tags"><span>React</span><span>TypeScript</span></div>
+          </a>
+          <a class="card" href="https://github.com/papap35/daily-planner" target="_blank" rel="noopener">
+            <h3>Daily Planner</h3>
+            <p>每天自動整理 Slack 與 Jira 資訊，透過 Claude AI 產生可執行的每日工作計畫。</p>
+            <div class="tags"><span>TypeScript</span><span>AI</span></div>
+          </a>
+          <a class="card" href="https://github.com/papap35/line-ai-summary" target="_blank" rel="noopener">
+            <h3>LINE AI Summary</h3>
+            <p>整合 LINE 訊息平台與 AI 摘要功能的服務。</p>
+            <div class="tags"><span>JavaScript</span><span>AI</span></div>
+          </a>
+          <a class="card" href="https://github.com/papap35/car-configurator" target="_blank" rel="noopener">
+            <h3>Car Configurator</h3>
+            <p>互動式選配車型的前端小工具。</p>
+            <div class="tags"><span>React</span><span>Vite</span></div>
+          </a>
+        </div>
+      </section>
+
+      <footer>
+        更多專案請見 <a href="https://github.com/papap35?tab=repositories" target="_blank" rel="noopener">github.com/papap35</a>
+      </footer>
+    </main>
   </body>
 </html>
