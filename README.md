@@ -8,6 +8,12 @@ Shane Chen 的個人主頁，透過 [GitHub Pages](https://pages.github.com/) �
 
 | Project | Description | Stack |
 | --- | --- | --- |
+| [ilovechiikawa](https://github.com/papap35/ilovechiikawa) | Chiikawa 絨毛玩偶收藏管理工具，拍照即可用 AI 辨識角色、通路、尺寸與新舊狀況，標示可能仿品疑點並估算參考市值 | TypeScript |
+| [愛棒球](https://github.com/papap35/ilovebaseball) | CPBL 數據站，提供戰績戰況、進階數據視覺化、AI 賽前分析與個人化追蹤 | TypeScript |
+| [台灣事件風險地圖](https://github.com/papap35/taiwan-rip) | 視覺化台灣意外與社會事件的風險地圖，支援時間軸回放、K-means 風險分級與周邊宮廟查詢 | TypeScript |
+| [ilovehouse](https://github.com/papap35/ilovehouse) | 實價登錄查詢 + AI 選屋規劃網站，整合內政部實價登錄資料，依預算、通勤與生活圈比較區域 | TypeScript |
+| [Paddock 64](https://github.com/papap35/diecast-platform) | 1:64 模型車限量預購與收藏平台作品集專案，含商城前台、後台管理與 REST API | TypeScript |
+| [ilovetomica](https://github.com/papap35/ilovetomica) | 1/64 合金車收藏管理工具，AI 拍照鑑定、行情估值與跨品牌比較，支援 16 個品牌 | TypeScript |
 | [Taiwan Pulse](https://github.com/papap35/taiwan-pulse) | 整合台灣多項政府開放資料的即時監控儀表板，涵蓋地震、天氣、空品、路況、淹水、火災等九大類警示，並附電力供需看板 | TypeScript |
 | [PDOS](https://github.com/papap35/pdos) | 個人決策作業系統，整合目標管理、事件記憶與決策分析的私人儀表板，純瀏覽器端運作，資料只存在 localStorage | Local-first |
 | [Aetheria](https://github.com/papap35/aetheria) | 原創奇幻世界觀的互動百科網站，收錄五大生態域、種族、人物譜系與歷史事件，支援搜尋與跨頁連結導覽 | HTML |
