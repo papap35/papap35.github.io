@@ -17,6 +17,10 @@
         --text: #e8eaed;
         --muted: #9aa1ac;
         --accent: #7c9cff;
+        --tag-lang: #7c9cff;
+        --tag-framework: #c084fc;
+        --tag-ai: #4ade80;
+        --tag-tool: #fbbf24;
       }
       * {
         box-sizing: border-box;
@@ -72,7 +76,26 @@
         font-weight: 600;
         text-transform: uppercase;
         letter-spacing: 0.06em;
+        margin: 0 0 8px;
+      }
+      .legend {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
         margin: 0 0 20px;
+        font-size: 0.78rem;
+        color: var(--muted);
+      }
+      .legend span {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .legend i {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        display: inline-block;
       }
       .grid {
         display: grid;
@@ -87,13 +110,23 @@
         background: var(--surface);
         border: 1px solid var(--border);
         border-radius: 12px;
-        text-decoration: none;
-        color: var(--text);
         transition: transform 0.15s ease, border-color 0.15s ease;
       }
       .card:hover {
         transform: translateY(-2px);
         border-color: var(--accent);
+      }
+      .card-head {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .card-head img.favicon,
+      .card-head .favicon-fallback {
+        width: 20px;
+        height: 20px;
+        border-radius: 5px;
+        flex-shrink: 0;
       }
       .card h3 {
         margin: 0;
@@ -113,10 +146,41 @@
       }
       .card .tags span {
         font-size: 0.75rem;
-        color: var(--accent);
-        background: rgba(124, 156, 255, 0.12);
         padding: 3px 8px;
         border-radius: 6px;
+      }
+      .tag-lang {
+        color: var(--tag-lang);
+        background: rgba(124, 156, 255, 0.14);
+      }
+      .tag-framework {
+        color: var(--tag-framework);
+        background: rgba(192, 132, 252, 0.14);
+      }
+      .tag-ai {
+        color: var(--tag-ai);
+        background: rgba(74, 222, 128, 0.14);
+      }
+      .tag-tool {
+        color: var(--tag-tool);
+        background: rgba(251, 191, 36, 0.14);
+      }
+      .card-links {
+        display: flex;
+        gap: 14px;
+        margin-top: 2px;
+        font-size: 0.85rem;
+      }
+      .card-links a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+      .card-links a:hover {
+        text-decoration: underline;
+      }
+      .card-links a.disabled {
+        color: var(--muted);
+        pointer-events: none;
       }
       footer {
         margin-top: 64px;
@@ -134,7 +198,7 @@
         <h1>Hi, I'm Shane 👋</h1>
         <p>
           軟體工程師，平常喜歡用 AI 打造各種實驗性小工具，從記帳、股票監控到影像處理都有涉獵。
-          這裡整理了我近期用 AI 協作開發的專案，歡迎瀏覽原始碼。
+          這裡整理了我近期用 AI 協作開發的專案，歡迎瀏覽原始碼或線上 Demo。
         </p>
         <div class="links">
           <a href="https://github.com/papap35" target="_blank" rel="noopener">GitHub</a>
@@ -143,92 +207,235 @@
 
       <section>
         <h2 class="section-title">Projects</h2>
+        <div class="legend">
+          <span><i style="background: var(--tag-framework)"></i>Framework</span>
+          <span><i style="background: var(--tag-lang)"></i>Language</span>
+          <span><i style="background: var(--tag-ai)"></i>AI</span>
+          <span><i style="background: var(--tag-tool)"></i>Tool / Other</span>
+        </div>
         <div class="grid">
-          <a class="card" href="https://github.com/papap35/ilovechiikawa" target="_blank" rel="noopener">
-            <h3>ilovechiikawa</h3>
+
+          <div class="card">
+            <div class="card-head">
+              <img class="favicon" src="https://ilovechiikawa.vercel.app/favicon.ico" alt="" loading="lazy" onerror="this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Crect width=%2224%22 height=%2224%22 rx=%226%22 fill=%22%23262a33%22/%3E%3Cpath d=%22M9 8l-3 4 3 4M15 8l3 4-3 4%22 stroke=%22%237c9cff%22 stroke-width=%221.6%22 fill=%22none%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/%3E%3C/svg%3E'" />
+              <h3>ilovechiikawa</h3>
+            </div>
             <p>Chiikawa 絨毛玩偶收藏管理工具，拍照即可用 AI 辨識角色、通路、尺寸與新舊狀況，標示可能仿品疑點並估算參考市值。</p>
-            <div class="tags"><span>TypeScript</span><span>AI</span></div>
-          </a>
-          <a class="card" href="https://github.com/papap35/ilovebaseball" target="_blank" rel="noopener">
-            <h3>愛棒球</h3>
+            <div class="tags"><span class="tag-framework">Next.js</span><span class="tag-lang">TypeScript</span><span class="tag-ai">AI</span></div>
+            <div class="card-links">
+              <a href="https://ilovechiikawa.vercel.app" target="_blank" rel="noopener">Demo ↗</a>
+              <a href="https://github.com/papap35/ilovechiikawa" target="_blank" rel="noopener">Code</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-head">
+              <img class="favicon" src="https://ilovebaseball.vercel.app/favicon.ico" alt="" loading="lazy" onerror="this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Crect width=%2224%22 height=%2224%22 rx=%226%22 fill=%22%23262a33%22/%3E%3Cpath d=%22M9 8l-3 4 3 4M15 8l3 4-3 4%22 stroke=%22%237c9cff%22 stroke-width=%221.6%22 fill=%22none%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/%3E%3C/svg%3E'" />
+              <h3>愛棒球</h3>
+            </div>
             <p>CPBL 數據站，提供戰績戰況、進階數據視覺化、AI 賽前分析與個人化追蹤。</p>
-            <div class="tags"><span>TypeScript</span><span>AI</span></div>
-          </a>
-          <a class="card" href="https://github.com/papap35/taiwan-rip" target="_blank" rel="noopener">
-            <h3>台灣事件風險地圖</h3>
+            <div class="tags"><span class="tag-framework">Next.js</span><span class="tag-lang">TypeScript</span><span class="tag-ai">AI</span></div>
+            <div class="card-links">
+              <a href="https://ilovebaseball.vercel.app" target="_blank" rel="noopener">Demo ↗</a>
+              <a href="https://github.com/papap35/ilovebaseball" target="_blank" rel="noopener">Code</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-head">
+              <img class="favicon" src="https://taiwan-rip.vercel.app/favicon.ico" alt="" loading="lazy" onerror="this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Crect width=%2224%22 height=%2224%22 rx=%226%22 fill=%22%23262a33%22/%3E%3Cpath d=%22M9 8l-3 4 3 4M15 8l3 4-3 4%22 stroke=%22%237c9cff%22 stroke-width=%221.6%22 fill=%22none%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/%3E%3C/svg%3E'" />
+              <h3>台灣事件風險地圖</h3>
+            </div>
             <p>視覺化台灣意外與社會事件的風險地圖，支援時間軸回放、K-means 風險分級與周邊宮廟查詢。</p>
-            <div class="tags"><span>TypeScript</span></div>
-          </a>
-          <a class="card" href="https://github.com/papap35/ilovehouse" target="_blank" rel="noopener">
-            <h3>ilovehouse</h3>
+            <div class="tags"><span class="tag-framework">Next.js</span><span class="tag-lang">TypeScript</span></div>
+            <div class="card-links">
+              <a href="https://taiwan-rip.vercel.app" target="_blank" rel="noopener">Demo ↗</a>
+              <a href="https://github.com/papap35/taiwan-rip" target="_blank" rel="noopener">Code</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-head">
+              <img class="favicon" src="https://ilovehouse.vercel.app/favicon.ico" alt="" loading="lazy" onerror="this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Crect width=%2224%22 height=%2224%22 rx=%226%22 fill=%22%23262a33%22/%3E%3Cpath d=%22M9 8l-3 4 3 4M15 8l3 4-3 4%22 stroke=%22%237c9cff%22 stroke-width=%221.6%22 fill=%22none%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/%3E%3C/svg%3E'" />
+              <h3>ilovehouse</h3>
+            </div>
             <p>實價登錄查詢 + AI 選屋規劃網站，整合內政部實價登錄資料，依預算、通勤與生活圈幫你比較區域。</p>
-            <div class="tags"><span>TypeScript</span><span>AI</span></div>
-          </a>
-          <a class="card" href="https://github.com/papap35/diecast-platform" target="_blank" rel="noopener">
-            <h3>Paddock 64</h3>
-            <p>1:64 模型車限量預購與收藏平台作品集專案，含商城前台、後台管理與 REST API。</p>
-            <div class="tags"><span>TypeScript</span></div>
-          </a>
-          <a class="card" href="https://github.com/papap35/ilovetomica" target="_blank" rel="noopener">
-            <h3>ilovetomica</h3>
+            <div class="tags"><span class="tag-framework">Next.js</span><span class="tag-lang">TypeScript</span><span class="tag-ai">AI</span></div>
+            <div class="card-links">
+              <a href="https://ilovehouse.vercel.app" target="_blank" rel="noopener">Demo ↗</a>
+              <a href="https://github.com/papap35/ilovehouse" target="_blank" rel="noopener">Code</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-head">
+              <span class="favicon-fallback" style="background: #262a33; display:inline-flex; align-items:center; justify-content:center; color: var(--accent); font-size: 11px;">◇</span>
+              <h3>Paddock 64</h3>
+            </div>
+            <p>1:64 模型車限量預購與收藏平台作品集專案，含商城前台、後台管理與 REST API。尚未部署線上 Demo。</p>
+            <div class="tags"><span class="tag-framework">Next.js</span><span class="tag-framework">NestJS</span><span class="tag-lang">TypeScript</span></div>
+            <div class="card-links">
+              <a class="disabled">Demo（尚未部署）</a>
+              <a href="https://github.com/papap35/diecast-platform" target="_blank" rel="noopener">Code</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-head">
+              <img class="favicon" src="https://ilovetomica.vercel.app/favicon.ico" alt="" loading="lazy" onerror="this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Crect width=%2224%22 height=%2224%22 rx=%226%22 fill=%22%23262a33%22/%3E%3Cpath d=%22M9 8l-3 4 3 4M15 8l3 4-3 4%22 stroke=%22%237c9cff%22 stroke-width=%221.6%22 fill=%22none%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/%3E%3C/svg%3E'" />
+              <h3>ilovetomica</h3>
+            </div>
             <p>1/64 合金車收藏管理工具，AI 拍照鑑定、行情估值與跨品牌比較，支援 16 個品牌。</p>
-            <div class="tags"><span>TypeScript</span><span>AI</span></div>
-          </a>
-          <a class="card" href="https://github.com/papap35/taiwan-pulse" target="_blank" rel="noopener">
-            <h3>Taiwan Pulse</h3>
+            <div class="tags"><span class="tag-framework">Next.js</span><span class="tag-lang">TypeScript</span><span class="tag-ai">AI</span></div>
+            <div class="card-links">
+              <a href="https://ilovetomica.vercel.app" target="_blank" rel="noopener">Demo ↗</a>
+              <a href="https://github.com/papap35/ilovetomica" target="_blank" rel="noopener">Code</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-head">
+              <img class="favicon" src="https://taiwan-pulse-xi.vercel.app/favicon.ico" alt="" loading="lazy" onerror="this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Crect width=%2224%22 height=%2224%22 rx=%226%22 fill=%22%23262a33%22/%3E%3Cpath d=%22M9 8l-3 4 3 4M15 8l3 4-3 4%22 stroke=%22%237c9cff%22 stroke-width=%221.6%22 fill=%22none%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/%3E%3C/svg%3E'" />
+              <h3>Taiwan Pulse</h3>
+            </div>
             <p>整合台灣多項政府開放資料的即時監控儀表板，涵蓋地震、天氣、空品、路況、淹水、火災等九大類警示，並附電力供需看板。</p>
-            <div class="tags"><span>TypeScript</span></div>
-          </a>
-          <a class="card" href="https://github.com/papap35/pdos" target="_blank" rel="noopener">
-            <h3>PDOS</h3>
-            <p>個人決策作業系統，整合目標管理、事件記憶與決策分析的私人儀表板，純瀏覽器端運作，資料只存在 localStorage。</p>
-            <div class="tags"><span>Local-first</span></div>
-          </a>
-          <a class="card" href="https://github.com/papap35/aetheria" target="_blank" rel="noopener">
-            <h3>Aetheria</h3>
+            <div class="tags"><span class="tag-framework">Next.js</span><span class="tag-lang">TypeScript</span></div>
+            <div class="card-links">
+              <a href="https://taiwan-pulse-xi.vercel.app" target="_blank" rel="noopener">Demo ↗</a>
+              <a href="https://github.com/papap35/taiwan-pulse" target="_blank" rel="noopener">Code</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-head">
+              <span class="favicon-fallback" style="background: #262a33; display:inline-flex; align-items:center; justify-content:center; color: var(--accent); font-size: 11px;">◇</span>
+              <h3>PDOS</h3>
+            </div>
+            <p>個人決策作業系統，整合目標管理、事件記憶與決策分析的私人儀表板，純瀏覽器端運作，資料只存在 localStorage。尚未部署線上 Demo。</p>
+            <div class="tags"><span class="tag-lang">JavaScript</span><span class="tag-tool">Local-first</span><span class="tag-ai">AI</span></div>
+            <div class="card-links">
+              <a class="disabled">Demo（尚未部署）</a>
+              <a href="https://github.com/papap35/pdos" target="_blank" rel="noopener">Code</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-head">
+              <img class="favicon" src="https://papap35.github.io/aetheria/favicon.ico" alt="" loading="lazy" onerror="this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Crect width=%2224%22 height=%2224%22 rx=%226%22 fill=%22%23262a33%22/%3E%3Cpath d=%22M9 8l-3 4 3 4M15 8l3 4-3 4%22 stroke=%22%237c9cff%22 stroke-width=%221.6%22 fill=%22none%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/%3E%3C/svg%3E'" />
+              <h3>Aetheria</h3>
+            </div>
             <p>原創奇幻世界觀的互動百科網站，收錄五大生態域、種族、人物譜系與歷史事件，支援搜尋與跨頁連結導覽。</p>
-            <div class="tags"><span>HTML</span></div>
-          </a>
-          <a class="card" href="https://github.com/papap35/image-search-tool" target="_blank" rel="noopener">
-            <h3>Image Search Tool</h3>
-            <p>用 Playwright 打造的圖庫網站爬蟲，可依關鍵字／標籤篩選相簿並批次下載圖片，支援分頁與去重。</p>
-            <div class="tags"><span>Python</span><span>Playwright</span></div>
-          </a>
-          <a class="card" href="https://github.com/papap35/many-money" target="_blank" rel="noopener">
-            <h3>Many Money</h3>
+            <div class="tags"><span class="tag-lang">HTML</span></div>
+            <div class="card-links">
+              <a href="https://papap35.github.io/aetheria/" target="_blank" rel="noopener">Demo ↗</a>
+              <a href="https://github.com/papap35/aetheria" target="_blank" rel="noopener">Code</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-head">
+              <span class="favicon-fallback" style="background: #262a33; display:inline-flex; align-items:center; justify-content:center; color: var(--accent); font-size: 11px;">◇</span>
+              <h3>Image Search Tool</h3>
+            </div>
+            <p>用 Playwright 打造的圖庫網站爬蟲，可依關鍵字／標籤篩選相簿並批次下載圖片，支援分頁與去重。本機執行工具，無線上 Demo。</p>
+            <div class="tags"><span class="tag-lang">Python</span><span class="tag-tool">Playwright</span></div>
+            <div class="card-links">
+              <a class="disabled">本機工具</a>
+              <a href="https://github.com/papap35/image-search-tool" target="_blank" rel="noopener">Code</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-head">
+              <img class="favicon" src="https://many-money.vercel.app/favicon.ico" alt="" loading="lazy" onerror="this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Crect width=%2224%22 height=%2224%22 rx=%226%22 fill=%22%23262a33%22/%3E%3Cpath d=%22M9 8l-3 4 3 4M15 8l3 4-3 4%22 stroke=%22%237c9cff%22 stroke-width=%221.6%22 fill=%22none%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/%3E%3C/svg%3E'" />
+              <h3>Many Money</h3>
+            </div>
             <p>AI 輔助記帳軟體，結合完整記帳功能與 AI 財務分析，幫助使用者開源節流。</p>
-            <div class="tags"><span>Next.js</span><span>TypeScript</span><span>AI</span></div>
-          </a>
-          <a class="card" href="https://github.com/papap35/taiwan-stock-monitor" target="_blank" rel="noopener">
-            <h3>Taiwan Stock Monitor</h3>
+            <div class="tags"><span class="tag-framework">Next.js</span><span class="tag-lang">TypeScript</span><span class="tag-ai">AI</span></div>
+            <div class="card-links">
+              <a href="https://many-money.vercel.app" target="_blank" rel="noopener">Demo ↗</a>
+              <a href="https://github.com/papap35/many-money" target="_blank" rel="noopener">Code</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-head">
+              <img class="favicon" src="https://taiwan-stock-monitor-murex.vercel.app/favicon.ico" alt="" loading="lazy" onerror="this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Crect width=%2224%22 height=%2224%22 rx=%226%22 fill=%22%23262a33%22/%3E%3Cpath d=%22M9 8l-3 4 3 4M15 8l3 4-3 4%22 stroke=%22%237c9cff%22 stroke-width=%221.6%22 fill=%22none%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/%3E%3C/svg%3E'" />
+              <h3>Taiwan Stock Monitor</h3>
+            </div>
             <p>台股個人投資儀表板，提供即時監控、技術分析、籌碼追蹤與 AI 盤勢簡報。</p>
-            <div class="tags"><span>JavaScript</span><span>AI</span></div>
-          </a>
-          <a class="card" href="https://github.com/papap35/image-magic" target="_blank" rel="noopener">
-            <h3>Image Magic</h3>
+            <div class="tags"><span class="tag-framework">React</span><span class="tag-lang">JavaScript</span><span class="tag-ai">AI</span></div>
+            <div class="card-links">
+              <a href="https://taiwan-stock-monitor-murex.vercel.app" target="_blank" rel="noopener">Demo ↗</a>
+              <a href="https://github.com/papap35/taiwan-stock-monitor" target="_blank" rel="noopener">Code</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-head">
+              <img class="favicon" src="https://image-magic-rosy.vercel.app/favicon.ico" alt="" loading="lazy" onerror="this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Crect width=%2224%22 height=%2224%22 rx=%226%22 fill=%22%23262a33%22/%3E%3Cpath d=%22M9 8l-3 4 3 4M15 8l3 4-3 4%22 stroke=%22%237c9cff%22 stroke-width=%221.6%22 fill=%22none%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/%3E%3C/svg%3E'" />
+              <h3>Image Magic</h3>
+            </div>
             <p>透過提示詞與動態表單產生 AI 圖片，支援標籤、AI 辨識與語意搜尋的圖庫管理。</p>
-            <div class="tags"><span>Next.js</span><span>TypeScript</span><span>AI</span></div>
-          </a>
-          <a class="card" href="https://github.com/papap35/paper-sudoku-helper" target="_blank" rel="noopener">
-            <h3>Paper Sudoku Helper</h3>
+            <div class="tags"><span class="tag-framework">Next.js</span><span class="tag-lang">TypeScript</span><span class="tag-ai">AI</span></div>
+            <div class="card-links">
+              <a href="https://image-magic-rosy.vercel.app" target="_blank" rel="noopener">Demo ↗</a>
+              <a href="https://github.com/papap35/image-magic" target="_blank" rel="noopener">Code</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-head">
+              <img class="favicon" src="https://paper-sudoku-helper.vercel.app/favicon.ico" alt="" loading="lazy" onerror="this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Crect width=%2224%22 height=%2224%22 rx=%226%22 fill=%22%23262a33%22/%3E%3Cpath d=%22M9 8l-3 4 3 4M15 8l3 4-3 4%22 stroke=%22%237c9cff%22 stroke-width=%221.6%22 fill=%22none%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/%3E%3C/svg%3E'" />
+              <h3>Paper Sudoku Helper</h3>
+            </div>
             <p>拍照辨識紙本數獨盤面，自動計算候選數字、檢查錯誤並提供分級提示。</p>
-            <div class="tags"><span>React</span><span>TypeScript</span></div>
-          </a>
-          <a class="card" href="https://github.com/papap35/daily-planner" target="_blank" rel="noopener">
-            <h3>Daily Planner</h3>
-            <p>每天自動整理 Slack 與 Jira 資訊，透過 Claude AI 產生可執行的每日工作計畫。</p>
-            <div class="tags"><span>TypeScript</span><span>AI</span></div>
-          </a>
-          <a class="card" href="https://github.com/papap35/line-ai-summary" target="_blank" rel="noopener">
-            <h3>LINE AI Summary</h3>
-            <p>整合 LINE 訊息平台與 AI 摘要功能的服務。</p>
-            <div class="tags"><span>JavaScript</span><span>AI</span></div>
-          </a>
-          <a class="card" href="https://github.com/papap35/car-configurator" target="_blank" rel="noopener">
-            <h3>Car Configurator</h3>
-            <p>互動式選配車型的前端小工具。</p>
-            <div class="tags"><span>React</span><span>Vite</span></div>
-          </a>
+            <div class="tags"><span class="tag-framework">React</span><span class="tag-lang">TypeScript</span><span class="tag-ai">AI</span></div>
+            <div class="card-links">
+              <a href="https://paper-sudoku-helper.vercel.app" target="_blank" rel="noopener">Demo ↗</a>
+              <a href="https://github.com/papap35/paper-sudoku-helper" target="_blank" rel="noopener">Code</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-head">
+              <span class="favicon-fallback" style="background: #262a33; display:inline-flex; align-items:center; justify-content:center; color: var(--accent); font-size: 11px;">◇</span>
+              <h3>Daily Planner</h3>
+            </div>
+            <p>每天自動整理 Slack 與 Jira 資訊，透過 Claude AI 產生可執行的每日工作計畫。CLI 工具，無線上 Demo。</p>
+            <div class="tags"><span class="tag-lang">TypeScript</span><span class="tag-ai">AI</span></div>
+            <div class="card-links">
+              <a class="disabled">CLI 工具</a>
+              <a href="https://github.com/papap35/daily-planner" target="_blank" rel="noopener">Code</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-head">
+              <span class="favicon-fallback" style="background: #262a33; display:inline-flex; align-items:center; justify-content:center; color: var(--accent); font-size: 11px;">◇</span>
+              <h3>LINE AI Summary</h3>
+            </div>
+            <p>整合 LINE 訊息平台與摘要功能的後端服務。無公開線上 Demo。</p>
+            <div class="tags"><span class="tag-lang">JavaScript</span></div>
+            <div class="card-links">
+              <a class="disabled">無公開 Demo</a>
+              <a href="https://github.com/papap35/line-ai-summary" target="_blank" rel="noopener">Code</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-head">
+              <span class="favicon-fallback" style="background: #262a33; display:inline-flex; align-items:center; justify-content:center; color: var(--accent); font-size: 11px;">◇</span>
+              <h3>Car Configurator</h3>
+            </div>
+            <p>互動式選配車型的前端小工具。尚未部署線上 Demo。</p>
+            <div class="tags"><span class="tag-framework">React</span><span class="tag-tool">Vite</span></div>
+            <div class="card-links">
+              <a class="disabled">Demo（尚未部署）</a>
+              <a href="https://github.com/papap35/car-configurator" target="_blank" rel="noopener">Code</a>
+            </div>
+          </div>
+
         </div>
       </section>
 
